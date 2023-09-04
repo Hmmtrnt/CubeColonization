@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
     // 回転後のCubeのクォータニオン
     Quaternion _toRotation;
 
+    // 左右か
+    private bool _isLeftRight;
+    // 上下か
+    private bool _isUpDown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +45,8 @@ public class Player : MonoBehaviour
         float x = 0;
         float y = 0;
 
+        
+
         // キー入力
         x = Input.GetAxisRaw("Horizontal");
         if(x == 0)
@@ -47,12 +54,14 @@ public class Player : MonoBehaviour
             y = Input.GetAxisRaw("Vertical");
         }
 
+        Debug.Log(x);
+
         // キー入力がある　かつ　Cubeが回転中でない場合　Cubeを回転する
-        if((x != 0 || y != 0) && !_isRotate)
+        if ((x != 0 || y != 0) && !_isRotate)
         {
             // 回転方向セット(x,yどちらかは必ず0)
-            _directionX = y;
-            _directionZ = x;
+            _directionX = -x;
+            _directionZ = y;
             // 回転前の座標を保持
             _startPos = transform.position;
             // 回転前のクォータニオンを保持
