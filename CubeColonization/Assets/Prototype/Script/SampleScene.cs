@@ -6,7 +6,7 @@ using Photon.Realtime;
 public class SampleScene : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // プレイヤーの名前を設定
         PhotonNetwork.NickName = "Player";
@@ -29,5 +29,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
         Vector3 position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
         PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
         
+        //position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
+        //PhotonNetwork.Instantiate("Avatar2", position, Quaternion.identity);
     }
 }
