@@ -114,5 +114,10 @@ public class Player : MonoBehaviour
             }
         }
 
+
+        if(transform.position.y <= -50)
+        {
+            transform.position = new Vector3(0.0f, 1.0f, 0.0f);
+        }
     }
 }
