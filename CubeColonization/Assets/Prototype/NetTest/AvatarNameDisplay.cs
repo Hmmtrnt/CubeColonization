@@ -15,5 +15,8 @@ public class AvatarNameDisplay : MonoBehaviourPunCallbacks
         _textMeshPro = GetComponent<TextMeshPro>();
         // プレイヤー名とプレイヤーIDを表示する
         _textMeshPro.text = $"{photonView.Owner.NickName}({photonView.OwnerActorNr})";
+
+        
+
     }
 }
