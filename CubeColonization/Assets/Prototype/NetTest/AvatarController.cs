@@ -1,24 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Photon.Pun;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class AvatarController : MonoBehaviourPunCallbacks
+public class AvatarController : MonoBehaviourPunCallbacks, IPunObservable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // スタミナ最大値
+    private const float MaxStamina = 6f;
+
+    [SerializeField] private Image staminaBar = default;
+
+    private float currentStamina = MaxStamina;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // 移動処理
         if (photonView.IsMine)
         {
-            Vector3 input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
-            transform.Translate(6f * Time.deltaTime * input.normalized);
+            var input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+            if (input.sqrMagnitude > 0f)
+            {
+                // 入力があったら、スタミナを減少させる
+                currentStamina = Mathf.Max(0f, currentStamina - Time.deltaTime);
+                transform.Translate(6f * Time.deltaTime * input.normalized);
+            }
+            else
+            {
+                // 入力がなかったら、スタミナを回復させる
+                currentStamina = Mathf.Min(currentStamina + Time.deltaTime * 2, MaxStamina);
+            }
+        }
+
+        // スタミナをゲージに反映する
+        staminaBar.fillAmount = currentStamina / MaxStamina;
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // 自身のアバターのスタミナを送信する
+            stream.SendNext(currentStamina);
+        }
+        else
+        {
+            // 他プレイヤーのアバターのスタミナを受信する
+            currentStamina = (float)stream.ReceiveNext();
         }
     }
 }
