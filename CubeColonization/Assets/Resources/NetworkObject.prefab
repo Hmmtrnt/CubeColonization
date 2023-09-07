@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 1514307419126574970}
   - component: {fileID: 1514307419126574973}
   - component: {fileID: 419522554080950226}
-  - component: {fileID: 6268714384120086336}
-  - component: {fileID: 8760518394915559703}
+  - component: {fileID: 2293993208461639064}
   m_Layer: 0
-  m_Name: Avatar2
+  m_Name: NetworkObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,39 +118,22 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 8760518394915559703}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6268714384120086336
+--- !u!114 &2293993208461639064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514307419126574972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd76daa80d0a79449a389a0f2f479e18, type: 3}
+  m_Script: {fileID: 11500000, guid: d9864d77917a3454eb2b825bac9f417a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8760518394915559703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514307419126574972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &5749556006537134694
 GameObject:
   m_ObjectHideFlags: 0

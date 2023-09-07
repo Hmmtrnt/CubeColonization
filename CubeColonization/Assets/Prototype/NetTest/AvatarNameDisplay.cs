@@ -5,6 +5,10 @@ public class AvatarNameDisplay : MonoBehaviourPunCallbacks
 {
     TextMeshPro _textMeshPro;
 
+    // チーム内でユニークなIDが割り当てられる
+    // プレイヤー名、スコア、チームID等
+    // 各プレイヤーごとに値を持たせる
+
     // Start is called before the first frame update
     private void Start()
     {
