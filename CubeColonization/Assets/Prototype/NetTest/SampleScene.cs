@@ -6,7 +6,8 @@ using Photon.Realtime;
 public class SampleScene : MonoBehaviourPunCallbacks
 {
     // ルームの名前.
-    string _roomName = "Room";
+    string _roomId = "Room";
+    string _PlayerName = "Player";
 
     // Start is called before the first frame update
     private void Start()
@@ -24,7 +25,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     {
         // "Room"という名前のルームに参加する(ルームが存在しなければ作成して参加する)
         // _roomName  : ルーム名
-        PhotonNetwork.JoinOrCreateRoom(_roomName, new RoomOptions(), TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(_roomId, new RoomOptions(), TypedLobby.Default);
     }
 
     // ネットワーク上で同期させるゲームオブジェクトはネットワークオブジェクト
@@ -35,7 +36,12 @@ public class SampleScene : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         // ランダムな座標に自身のアバター(ネットワークオブジェクト)を生成する
-        Vector3 position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
+        //Vector3 position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
+        //PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
+
+        Vector3 position = new Vector3(0.0f, 1.0f, 0.0f);
+        PhotonNetwork.Instantiate(_PlayerName, position, Quaternion.identity);
+
+
     }
 }

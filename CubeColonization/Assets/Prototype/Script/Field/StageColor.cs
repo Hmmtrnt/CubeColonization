@@ -13,7 +13,14 @@ public class StageColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (Input.GetKey("SPECE"))
+        //{
+        //    Debug.Log("’Ê‚Á‚½");
+        //    if(GetComponent<Renderer>().material.color == Color.red)
+        //    {
+        //        GetComponent<Renderer>().material.color = Color.white;
+        //    }
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)
